@@ -219,16 +219,6 @@ void setup()
     setupWebserver();
 }
 
-static void callbackForMQTT(char *topic, byte *bytes, unsigned int length)
-{
-    String payload;
-    for (size_t i = 0; i < length; i++)
-    {
-        payload += (char)bytes[i];
-    }
-    Serial.printf("Topic: %s, payload: %s\n", topic, payload.c_str());
-}
-
 static void loopSensor()
 {
     uint8_t data_available = s_us100.data_available();
